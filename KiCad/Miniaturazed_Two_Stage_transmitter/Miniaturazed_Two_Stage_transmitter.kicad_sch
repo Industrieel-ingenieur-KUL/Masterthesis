@@ -1,0 +1,208 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "1ad9bcac-1f06-4b0d-936c-bb8177e25b39")
+	(paper "A4")
+	(lib_symbols)
+	(text "Enkel voor simulatie"
+		(exclude_from_sim no)
+		(at 141.986 19.304 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+			)
+		)
+		(uuid "c26dc304-8e20-486c-82fa-cb108e9e1665")
+	)
+	(sheet
+		(at 83.82 30.48)
+		(size 58.42 53.34)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "3f3a0b9d-53aa-4e06-a0be-e60f818477fc")
+		(property "Sheetname" "Multivibrator"
+			(at 83.82 29.7684 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Multivibrator.kicad_sch"
+			(at 83.82 84.4046 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Miniaturazed_Two_Stage_transmitter"
+				(path "/1ad9bcac-1f06-4b0d-936c-bb8177e25b39"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 16.51 30.48)
+		(size 58.42 53.34)
+		(exclude_from_sim yes)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "55cac25e-1b02-4ea0-a35c-99d72815a325")
+		(property "Sheetname" "Full"
+			(at 16.51 29.7684 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Full.kicad_sch"
+			(at 16.51 84.4046 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Miniaturazed_Two_Stage_transmitter"
+				(path "/1ad9bcac-1f06-4b0d-936c-bb8177e25b39"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 149.86 29.21)
+		(size 58.42 55.88)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "a43f95a5-b63a-490e-9dbd-30357dbf9c01")
+		(property "Sheetname" "RF"
+			(at 149.86 28.4984 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "untitled.kicad_sch"
+			(at 149.86 85.6746 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Miniaturazed_Two_Stage_transmitter"
+				(path "/1ad9bcac-1f06-4b0d-936c-bb8177e25b39"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 16.51 93.98)
+		(size 58.42 48.26)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "e8ef4360-4377-4627-9337-300800e3fb7d")
+		(property "Sheetname" "Single_stage_transmitter"
+			(at 16.51 93.2684 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Single_stage_transmitter.kicad_sch"
+			(at 16.51 142.8246 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Miniaturazed_Two_Stage_transmitter"
+				(path "/1ad9bcac-1f06-4b0d-936c-bb8177e25b39"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

@@ -1,0 +1,93 @@
+***********************************************************
+*
+* PDTA114EU - Full 3-pin equivalent (with internal R1/R2)
+*
+* Nexperia Resistor Equipped PNP Transistor (RET)
+* IC   = 100 mA
+* VCEO = 50 V
+* hFE  = min. 5 @ 5V/5mA
+* R1   = 10 Kohm (series, Base to internal base node)
+* R2   = 10 Kohm (internal base node to Emitter)
+*
+* This wrapper subcircuit adds R1 and R2 around Nexperia's
+* bare-transistor model so the part behaves exactly like the
+* real physical PDTA114EU when you use only 3 pins.
+*
+* Package pin order (SOT323 / SOT490):
+*   Pin 1 = Base
+*   Pin 2 = Emitter
+*   Pin 3 = Collector
+*
+* Map your KiCad schematic symbol pins to these SPICE nodes
+* in that same order (1=Base, 2=Emitter, 3=Collector).
+*
+**********************************************************
+
+* ---- Top-level 3-pin subcircuit to use on your schematic ----
+.SUBCKT PDTA114EU_FULL 1 2 3
+R1 1 4 10k
+R2 4 2 10k
+XQ 4 2 3 PDTA114EU_BARE
+.ENDS PDTA114EU_FULL
+
+* ---- Nexperia's original bare-transistor model (unchanged) ----
+.SUBCKT PDTA114EU_BARE 1 2 3
+Q1 1 2 3 MAIN 0.9133
+Q2 11 2 3 MAIN 0.08666
+RQ 11 1 227.1
+D1 1 2 DIODE
+*
+.MODEL MAIN PNP
++ IS = 1.074E-014
++ NF = 0.987
++ ISE = 4.71E-015
++ NE = 1.594
++ BF = 307.5
++ IKF = 0.07345
++ VAF = 22.04
++ NR = 0.9839
++ ISC = 1E-018
++ NC = 0.9168
++ BR = 13.62
++ IKR = 0.0376
++ VAR = 24.01
++ RB = 39.4
++ IRB = 0.0001259
++ RBM = 3.4
++ RE = 0.2709
++ RC = 0.3664
++ XTB = 1.559
++ EG = 1.11
++ XTI = 5.918
++ CJE = 9.067E-012
++ VJE = 0.712
++ MJE = 0.3653
++ TF = 9.5E-010
++ XTF = 18
++ VTF = 3
++ ITF = 0.7
++ PTF = 0
++ CJC = 8.778E-012
++ VJC = 0.9955
++ MJC = 0.6991
++ XCJC = 1
++ TR = 3.4E-008
++ CJS = 0
++ VJS = 0.75
++ MJS = 0.333
++ FC = 0.79
+.MODEL DIODE D
++ IS = 2.594E-015
++ N = 1.03
++ BV = 1000
++ IBV = 0.001
++ RS = 9550
++ CJO = 0
++ VJ = 1
++ M = 0.5
++ FC = 0
++ TT = 0
++ EG = 1.11
++ XTI = 3
+.ENDS PDTA114EU_BARE
+*
