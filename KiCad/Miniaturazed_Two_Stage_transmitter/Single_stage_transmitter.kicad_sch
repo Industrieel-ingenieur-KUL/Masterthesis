@@ -1951,18 +1951,6 @@
 		(uuid "70c7ef92-737d-4c20-ba3a-2e88fcdfa2de")
 	)
 	(junction
-		(at 74.93 99.06)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7247fd7b-68bb-491a-98dd-d53678c12b64")
-	)
-	(junction
-		(at 162.56 99.06)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7b40197e-3e90-4a6c-883b-ba71f21142ce")
-	)
-	(junction
 		(at 217.17 99.06)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2042,16 +2030,6 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 102.87) (xy 162.56 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0bb2c0a8-1f46-4691-a982-2f2429a3fea5")
-	)
-	(wire
-		(pts
 			(xy 179.07 71.12) (xy 179.07 40.64)
 		)
 		(stroke
@@ -2069,16 +2047,6 @@
 			(type default)
 		)
 		(uuid "173ef863-ca49-414a-aecd-ecd13552262e")
-	)
-	(wire
-		(pts
-			(xy 74.93 102.87) (xy 74.93 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1babb85c-ce11-4e75-aa24-4b087b42f004")
 	)
 	(wire
 		(pts
@@ -2720,6 +2688,16 @@
 		)
 		(uuid "36ae35e5-8b66-4ba2-89a5-6e68a1d6b425")
 	)
+	(label "GNDB"
+		(at 74.93 99.06 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "77c26a89-cb1c-426a-882e-eb4e2912197e")
+	)
 	(label "RC"
 		(at 105.41 82.55 0)
 		(effects
@@ -2739,6 +2717,16 @@
 			(justify left bottom)
 		)
 		(uuid "a358d91a-c38b-4138-a4c0-ed43e873ea68")
+	)
+	(label "GNDC"
+		(at 162.56 99.06 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b1663224-7aac-4174-acc9-d9aea7e34fe2")
 	)
 	(label "RFB"
 		(at 233.68 54.61 0)
@@ -3730,84 +3718,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Simulation_SPICE:0")
-		(at 74.93 102.87 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "691bbcf1-c08a-4cfa-ae80-7bcd75239121")
-		(property "Reference" "#GND03"
-			(at 74.93 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0"
-			(at 74.93 100.33 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 74.93 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#subsec_Circuit_elements__device"
-			(at 74.93 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "0V reference potential for simulation"
-			(at 74.93 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "617e5bee-7e22-454f-94b2-383a257f0c72")
-		)
-		(instances
-			(project "Miniaturazed_Two_Stage_transmitter"
-				(path "/1ad9bcac-1f06-4b0d-936c-bb8177e25b39/e8ef4360-4377-4627-9337-300800e3fb7d"
-					(reference "#GND03")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 193.04 90.17 0)
 		(unit 1)
@@ -4542,84 +4452,6 @@
 			(project "Miniaturazed_Two_Stage_transmitter"
 				(path "/1ad9bcac-1f06-4b0d-936c-bb8177e25b39/e8ef4360-4377-4627-9337-300800e3fb7d"
 					(reference "TPB4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Simulation_SPICE:0")
-		(at 162.56 102.87 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b5c8eb0c-fca2-48e7-a960-8c3f4bbd7a16")
-		(property "Reference" "#GND04"
-			(at 162.56 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0"
-			(at 162.56 100.33 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 162.56 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#subsec_Circuit_elements__device"
-			(at 162.56 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "0V reference potential for simulation"
-			(at 162.56 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c406f6af-c11f-47eb-a0f2-c1b2e8a1612d")
-		)
-		(instances
-			(project "Miniaturazed_Two_Stage_transmitter"
-				(path "/1ad9bcac-1f06-4b0d-936c-bb8177e25b39/e8ef4360-4377-4627-9337-300800e3fb7d"
-					(reference "#GND04")
 					(unit 1)
 				)
 			)

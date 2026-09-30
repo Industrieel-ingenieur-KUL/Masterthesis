@@ -1876,12 +1876,6 @@
 		(uuid "393d736f-ae15-40e4-879d-7968fc910d11")
 	)
 	(junction
-		(at 69.85 124.46)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "48cb041b-cc76-4b35-b041-13f3408df178")
-	)
-	(junction
 		(at 125.73 95.25)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2183,16 +2177,6 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 124.46) (xy 69.85 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b128a6bd-9f03-4bd2-b45e-872685843681")
-	)
-	(wire
-		(pts
 			(xy 105.41 111.76) (xy 105.41 113.03)
 		)
 		(stroke
@@ -2390,6 +2374,16 @@
 			(justify left bottom)
 		)
 		(uuid "c23509b7-ecd4-42b5-9e11-45351a3c772a")
+	)
+	(label "GNDA"
+		(at 69.85 124.46 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c7198d33-936d-4d17-8a63-449961c7644a")
 	)
 	(symbol
 		(lib_id "Device:Antenna")
@@ -2909,84 +2903,6 @@
 			(project "Miniaturazed_Two_Stage_transmitter"
 				(path "/1ad9bcac-1f06-4b0d-936c-bb8177e25b39/55cac25e-1b02-4ea0-a35c-99d72815a325"
 					(reference "RA3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Simulation_SPICE:0")
-		(at 69.85 128.27 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3062f910-6020-4046-8fad-78ae9cda9cd8")
-		(property "Reference" "#GND02"
-			(at 69.85 133.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0"
-			(at 69.85 125.73 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_SON:WSON-8-1EP_6x5mm_P1.27mm_EP3.4x4mm"
-			(at 69.85 128.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#subsec_Circuit_elements__device"
-			(at 69.85 138.43 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "0V reference potential for simulation"
-			(at 69.85 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8644bbc9-a2fb-4b6e-84c9-ac237d63e3d2")
-		)
-		(instances
-			(project "Miniaturazed_Two_Stage_transmitter"
-				(path "/1ad9bcac-1f06-4b0d-936c-bb8177e25b39/55cac25e-1b02-4ea0-a35c-99d72815a325"
-					(reference "#GND02")
 					(unit 1)
 				)
 			)
