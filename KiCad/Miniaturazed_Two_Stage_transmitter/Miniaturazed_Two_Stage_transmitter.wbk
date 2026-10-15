@@ -1,16 +1,26 @@
 {
   "custom_cursors": 2,
-  "last_sch_text_sim_command": ".tran 0.1m 50m uic\n.ic V(RF)=0 V(RC)=2.5",
+  "last_sch_text_sim_command": ".tran 0.1m 50m uic\n.ic V(RF)=0\n.ic V(RC)=2.5",
   "tabs": [
     {
       "analysis": "TRAN",
       "commands": [
-        ".tran 100u 10m 0 0 uic",
+        ".tran 100u 50m 0 0 uic",
+        ".kicad adjustpaths",
+        ".save all",
+        ".probe alli",
+        ".probe allp"
+      ]
+    },
+    {
+      "analysis": "TRAN",
+      "commands": [
+        ".tran 100u 10m 0 100u uic",
         ".kicad adjustpaths",
         ".save all",
         ".kicad esavenone"
       ],
-      "dottedSecondary": false,
+      "dottedSecondary": true,
       "margins": {
         "bottom": 45,
         "left": 70,
@@ -23,11 +33,6 @@
         {
           "color": "rgb(228, 26, 28)",
           "signal": "V(/Single_stage_transmitter/RC)",
-          "trace_type": 257
-        },
-        {
-          "color": "rgb(77, 175, 74)",
-          "signal": "V(Net-_QB1-C_)",
           "trace_type": 257
         }
       ]

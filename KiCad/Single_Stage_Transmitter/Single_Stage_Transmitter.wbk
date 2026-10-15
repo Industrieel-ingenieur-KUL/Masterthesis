@@ -1,25 +1,15 @@
 {
   "custom_cursors": 2,
-  "last_sch_text_sim_command": "",
+  "last_sch_text_sim_command": ".tran 100u 10m 0 100u\n.ic V(Collector)=0",
   "tabs": [
-    {
-      "analysis": "OP",
-      "commands": [
-        ".op",
-        ".kicad adjustpaths",
-        ".save all",
-        ".probe alli",
-        ".probe allp"
-      ]
-    },
     {
       "analysis": "TRAN",
       "commands": [
-        ".tran 200p 500u 0 200p",
+        ".tran 1u 100 0 100u",
         ".kicad adjustpaths",
         ".save all",
         ".probe alli",
-        ".probe allp"
+        ".kicad esavenone"
       ],
       "dottedSecondary": true,
       "margins": {
@@ -32,10 +22,20 @@
       "showGrid": true,
       "traces": [
         {
-          "color": "rgb(228, 26, 28)",
+          "color": "rgb(55, 126, 184)",
           "signal": "V(/OUT)",
           "trace_type": 257
         }
+      ]
+    },
+    {
+      "analysis": "OP",
+      "commands": [
+        ".op",
+        ".kicad adjustpaths",
+        ".save all",
+        ".probe alli",
+        ".probe allp"
       ]
     }
   ],

@@ -8,17 +8,22 @@
 * in this range -- replace with your crystal's datasheet values
 * (Rm, Cm, C0) if you have them; Lm is derived so f0=1/(2*pi*sqrt(Lm*Cm)).
 *
-* pin 1 --[Rm]--[Lm]--[Cm]-- pin2
-*        |________C0_________|
-.subckt XTAL_49M5 1 2
-Rm   1   n1   30
-Lm   n1  n2   690u
-Cm   n2  2    0.015p
-C0   1   2    3p
+* pin 4 --[Rm]--[Lm]--[Cm]-- pin 2
+*   |________C0_________|
+*
+* pin 3 = Ground (GND)
+* pin 1 = NC (Not connected / excluded from SPICE subcircuit)
+
+.subckt XTAL_49M5 1 2 3
+Rm 1 n1 30
+Lm n1 n2 690u
+Cm n2 2  0.015p
+C0 1 2  3p
+Rgnd 3 0 100Meg
 .ends XTAL_49M5
 
-.subckt XTAL150 1 2
-Rm 1 a 40
+.subckt XTAL150 4 2 3
+Rm 4 a 40
 Lm a b 56u
 Cm b 2 0.02p
 C0 1 2 3p
@@ -30,7 +35,7 @@ C0 1 2 3p
 * antenna's self-capacitance, referenced to circuit ground (the
 * animal/dummy body acts as the counterpoise, same as circuit GND).
 *
-*   Rr  = 40*pi^2*(h/lambda)^2           ~ 1.6 ohm  (radiation R)
+*   Rr   = 40*pi^2*(h/lambda)^2           ~ 1.6 ohm  (radiation R)
 *   Cant = 2*pi*eps0*h / (ln(h/a) - 1)    ~ 1.1-1.2 pF (self-C, 0.15mm wire)
 *
 * feed --[Rrad]--[Cant]-- 0 (circuit ground)

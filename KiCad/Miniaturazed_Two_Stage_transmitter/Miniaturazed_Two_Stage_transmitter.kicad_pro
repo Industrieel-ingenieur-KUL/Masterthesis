@@ -718,7 +718,7 @@
         "version": 0
       },
       "model_mode": 4,
-      "workbook_filename": "Miniaturazed_Two_Stage_transmitter.wbk"
+      "workbook_filename": ""
     },
     "page_layout_descr_file": "",
     "plot_directory": "",
@@ -732,7 +732,7 @@
         "uuid": "1ad9bcac-1f06-4b0d-936c-bb8177e25b39"
       }
     ],
-    "used_designators": "YC1,RB1-4,R1-18,#GND1-8,C1-24,LB1-4,L1-18,AE1-6,RA1-3,Q1-9,Y1-6,V1-9,CA1-5,TP1-8,I1,#PWR1,TPB1-10,CB1-8,AB1-2,QB1-2,RC1-2,YB1-2,AA1,AC1,CC1-4,LA1-3,LC1-2,QA1-2,QC1,YA1",
+    "used_designators": "YC1,RB1-4,R1-18,#GND1-8,C1-24,LB1-4,L1-18,AE1-6,RA1-3,Q1-9,Y1-6,V1-9,CA1-5,TP1-8,I1,#PWR1,TPB1-10,CB1-8,AB1-2,QB1-2,RC1-2,YB1-2,AA1,AC1,CC1-4,LA1-3,LC1-2,QA1-2,QC1,YA1,YBe1",
     "variants": []
   },
   "sheets": [

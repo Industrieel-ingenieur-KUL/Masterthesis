@@ -2437,7 +2437,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4e78a4bd-0f5b-47f9-9edd-3f4164dc500e")
-		(property "Reference" "#GND05"
+		(property "Reference" "#GND07"
 			(at 60.96 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -2497,7 +2497,7 @@
 		(instances
 			(project "Miniaturazed_Two_Stage_transmitter"
 				(path "/1ad9bcac-1f06-4b0d-936c-bb8177e25b39/a43f95a5-b63a-490e-9dbd-30357dbf9c01"
-					(reference "#GND05")
+					(reference "#GND07")
 					(unit 1)
 				)
 			)
