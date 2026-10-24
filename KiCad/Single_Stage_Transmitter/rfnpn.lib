@@ -1,3 +1,54 @@
-.model QRF NPN (IS=1e-16 BF=100 NF=1 VAF=50 IKF=50m
-+ RB=10 RE=1 RC=5 CJE=0.8p VJE=0.75 MJE=0.33
-+ CJC=0.4p VJC=0.75 MJC=0.33 TF=25p TR=5n)
+* ==========================================================
+* BFR181W NPN Silicon RF Transistor SPICE Model
+* Source: Infineon Datasheet (Oct-13-1999)
+* Package: SOT-323
+* ==========================================================
+* Pin Mapping:
+* 1 = Base
+* 2 = Emitter
+* 3 = Collector
+* ==========================================================
+
+.SUBCKT BFR181W 1 2 3
+
+* ----------------------------------------------------------
+* Package Parasitics (SOT-323 Equivalent Circuit)
+* ----------------------------------------------------------
+* Base Inductances
+LBO 1 B_pkg 0.4nH
+LBI B_pkg B_chip 0.57nH
+
+* Emitter Inductances
+LEO 2 E_pkg 0.5nH
+LEI E_pkg E_chip 0.43nH
+
+* Collector Inductances
+* Datasheet specifies LCI = 0nH. LCO is unlisted (-).
+* A nominal 1pH (0.001nH) is used to prevent ngspice singularity errors.
+LCO 3 C_pkg 0.001nH
+LCI C_pkg C_chip 0.001nH
+
+* Package Inter-pin Capacitances
+CCB B_pkg C_pkg 101fF
+CBE B_pkg E_pkg 61fF
+CCE C_pkg E_pkg 175fF
+
+* ----------------------------------------------------------
+* Core Transistor Chip Model
+* ----------------------------------------------------------
+* SPICE Q instance format: Collector Base Emitter
+Q1 C_chip B_chip E_chip BFR181W_CHIP
+
+* Gummel-Poon Parameters from Datasheet Page 4
+* Units converted to standard SPICE scientific notation (e.g. fA -> E-15)
+.MODEL BFR181W_CHIP NPN(
++ IS=1.0519E-18 BF=96.461 NF=0.90617 VAF=22.403 IKF=0.12146
++ ISE=12.603E-15 NE=1.7631 BR=16.504 NR=0.87757 VAR=5.1127
++ IKR=0.24951 ISC=11.95E-18 NC=1.6528 RB=9.9037 IRB=0.69278E-3
++ RBM=6.6315 RE=2.1372 RC=2.2171 CJE=1.8168E-15 VJE=0.73155
++ MJE=0.43619 TF=17.028E-12 XTF=0.33814 VTF=0.12571 ITF=1.0549E-3
++ PTF=0 CJC=319.69E-15 VJC=1.1633 MJC=0.30013 XCJC=0.082903
++ TR=2.7449E-9 CJS=0 VJS=0.75 MJS=0 XTB=0 EG=1.11 XTI=3 FC=0.99768
++ TNOM=26.85)
+
+.ENDS BFR181W

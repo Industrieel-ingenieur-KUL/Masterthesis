@@ -1,11 +1,11 @@
 {
   "custom_cursors": 2,
-  "last_sch_text_sim_command": ".tran 100u 10m 0 100u\n.ic V(Collector)=0",
+  "last_sch_text_sim_command": ".tran 100p 150u 0 100p\n.ic V(Net-_C4-Pad1_)=1.9 V(/Base)=0.8\n.model __Q1 NPN(BF=100 IS=1e-16 VAF=100 CJE=1p CJC=0.5p TF=20p)",
   "tabs": [
     {
       "analysis": "TRAN",
       "commands": [
-        ".tran 1u 100 0 100u",
+        ".tran 100p 150u 0 100p\n.ic V(Net-_C4-Pad1_)=1.9 V(/Base)=0.8\n.model __Q1 NPN(BF=100 IS=1e-16 VAF=100 CJE=1p CJC=0.5p TF=20p)",
         ".kicad adjustpaths",
         ".save all",
         ".probe alli",
@@ -22,20 +22,15 @@
       "showGrid": true,
       "traces": [
         {
+          "color": "rgb(228, 26, 28)",
+          "signal": "V(/Base)",
+          "trace_type": 257
+        },
+        {
           "color": "rgb(55, 126, 184)",
           "signal": "V(/OUT)",
           "trace_type": 257
         }
-      ]
-    },
-    {
-      "analysis": "OP",
-      "commands": [
-        ".op",
-        ".kicad adjustpaths",
-        ".save all",
-        ".probe alli",
-        ".probe allp"
       ]
     }
   ],
