@@ -387,3 +387,31 @@ Substituting $\omega_{\text{tank}}^2 = \frac{1}{L_2 C_3}$ defines the valid freq
 The tank circuit must be designed such that the oscillation frequency falls within these frequency bounds.
 
 \section{The antenna}
+
+\section{Design formula summary}
+
+For convenience during the practical design phase, all critical equations required to calculate the components and operating conditions of the single-stage Pierce oscillator are summarized below.
+
+\subsection*{Crystal and Load Capacitance}
+\begin{align}
+	f_s &= \frac{1}{2\pi \sqrt{L_s C_s}} && \text{(Intrinsic series resonant frequency)} \\
+	C_L &= \frac{C_b C_c}{C_b + C_c} && \text{(External load capacitance)} \\
+	C_T &= C_0 + C_L + C_\mu && \text{(Total effective parallel capacitance)} \\
+	f_L &\approx f_s \left(1 + \frac{C_s}{2 C_T}\right) && \text{(Loaded operating frequency)}
+\end{align}
+
+\subsection*{Transistor Startup and Biasing}
+\begin{align}
+	g_{m,\text{crit}} &= \omega^2 C_b C_c R_s \left(\frac{C_T}{C_L}\right)^2 && \text{(Minimum critical transconductance)} \\
+	g_m &= (3 \text{ to } 5) \times g_{m,\text{crit}} && \text{(Target transconductance with safety margin)} \\
+	I_c &= g_m V_T && \text{(Required DC collector bias current)} \\
+	I_b &= \frac{I_c}{\beta} && \text{(Required DC base bias current)}
+\end{align}
+
+\subsection*{Collector Network and Antenna Matching}
+\begin{align}
+	L_1' &= \frac{L_1}{1 - \omega^2 L_1 C_a} && \text{(Equivalent matching inductance, assuming } L_1' > 0) \\
+	\omega_{\text{tank}} &= \frac{1}{\sqrt{L_2 C_3}} && \text{(Lower boundary of capacitive region)} \\
+	\omega_{\text{osc}} &< \omega_{\text{tank}} \sqrt{1 + \frac{L_2}{L_1'}} && \text{(Upper boundary of capacitive region)} \\
+	L_1 &\approx \frac{1}{\omega_{\text{osc}}^2 C_a} && \text{(Optimal matching inductor for antenna resonance)}
+\end{align}
