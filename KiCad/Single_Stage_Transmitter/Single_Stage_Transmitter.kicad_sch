@@ -1083,7 +1083,7 @@
 	)
 	(text "5.4mH\n0.2222f\n"
 		(exclude_from_sim no)
-		(at 105.41 49.022 0)
+		(at 103.378 46.228 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1091,9 +1091,9 @@
 		)
 		(uuid "3c8cee24-6c5a-432a-a5f1-4e0c8735fc96")
 	)
-	(text ".tran 500p 5m 0 UIC\n\n.ic V(Net-_C4-Pad1_)=1.9 V(/Base)=0.8\n.model __Q1 NPN(BF=100 IS=1e-16 VAF=100 CJE=1p CJC=0.5p TF=20p)\n\n.option method=trap\n.option trtol=3\n.option reltol=0.003\n.option abstol=1nA vntol=1mV\n.option trtol=7\n\n.save v(OUT) v(/Base) v(Net-_C4-Pad1_)\n"
+	(text ".tran 500p 300u 0 500p\n\n.save v(/OUT) v(/Base) v(/Collector)"
 		(exclude_from_sim no)
-		(at 56.896 107.696 0)
+		(at 57.15 96.012 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1121,12 +1121,6 @@
 		(uuid "3577b0d3-7104-4e42-ad21-6e54c75be89b")
 	)
 	(junction
-		(at 142.24 85.09)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "43569532-4f38-45fe-832a-6d41702e1199")
-	)
-	(junction
 		(at 132.08 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1137,12 +1131,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7623c24d-04a6-435b-99be-7af30994454c")
-	)
-	(junction
-		(at 142.24 63.5)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a7b317b6-3315-47f1-a98f-a18ff924c0f5")
 	)
 	(junction
 		(at 142.24 50.8)
@@ -1198,7 +1186,7 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 39.37) (xy 74.93 39.37)
+			(xy 57.15 39.37) (xy 62.23 39.37)
 		)
 		(stroke
 			(width 0)
@@ -1388,16 +1376,6 @@
 	)
 	(wire
 		(pts
-			(xy 142.24 63.5) (xy 142.24 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "64ce8aac-b8b6-4939-91d2-28cd32eb3538")
-	)
-	(wire
-		(pts
 			(xy 106.68 59.69) (xy 109.22 59.69)
 		)
 		(stroke
@@ -1408,6 +1386,16 @@
 	)
 	(wire
 		(pts
+			(xy 69.85 39.37) (xy 74.93 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a6c40b7-a41c-4c4a-b24e-b573c3e342b7")
+	)
+	(wire
+		(pts
 			(xy 116.84 67.31) (xy 129.54 67.31)
 		)
 		(stroke
@@ -1415,16 +1403,6 @@
 			(type default)
 		)
 		(uuid "71fce68f-18ff-4733-b3c8-a8f5f204283f")
-	)
-	(wire
-		(pts
-			(xy 142.24 80.01) (xy 142.24 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "78192a3c-b7d5-4207-a9a1-eb8d2b648608")
 	)
 	(wire
 		(pts
@@ -1458,7 +1436,7 @@
 	)
 	(wire
 		(pts
-			(xy 142.24 85.09) (xy 153.67 85.09)
+			(xy 132.08 85.09) (xy 153.67 85.09)
 		)
 		(stroke
 			(width 0)
@@ -1495,16 +1473,6 @@
 			(type default)
 		)
 		(uuid "a705e579-7a0d-44b7-b59e-e5914b86db97")
-	)
-	(wire
-		(pts
-			(xy 132.08 85.09) (xy 142.24 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "adeb3ff3-1f1a-430a-8a60-1d676600cfa7")
 	)
 	(wire
 		(pts
@@ -1767,8 +1735,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 142.24 76.2 0)
+		(lib_id "Device:R")
+		(at 66.04 39.37 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1776,31 +1744,30 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "274bfa1a-3ca0-496d-af24-3479affdad36")
-		(property "Reference" "C6"
-			(at 145.542 76.454 0)
+		(fields_autoplaced yes)
+		(uuid "20e6c42c-0fbd-4e3a-b37f-89a34751e2b3")
+		(property "Reference" "R3"
+			(at 66.04 33.02 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "4p"
-			(at 145.796 78.232 0)
+		(property "Value" "0"
+			(at 66.04 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 143.2052 80.01 0)
+			(at 66.04 37.592 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1811,7 +1778,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 142.24 76.2 0)
+			(at 66.04 39.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1821,8 +1788,8 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
-			(at 142.24 76.2 0)
+		(property "Description" "Resistor"
+			(at 66.04 39.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1831,17 +1798,17 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(pin "1"
-			(uuid "41ede558-1a4c-4521-b773-7bab416cfec1")
 		)
 		(pin "2"
-			(uuid "96b074c8-e87f-4589-a8ce-a7870baf7678")
+			(uuid "4dc0118e-50b8-4cf1-9f91-352663a88415")
+		)
+		(pin "1"
+			(uuid "4d5f4662-029b-4395-9fbe-b45623c5202c")
 		)
 		(instances
 			(project "Single_Stage_Transmitter"
 				(path "/2688bd9c-c39c-4a29-8195-973e7622281f"
-					(reference "C6")
+					(reference "R3")
 					(unit 1)
 				)
 			)
@@ -2029,7 +1996,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "600n"
+		(property "Value" "200n"
 			(at 143.51 45.7199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2388,7 +2355,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "50k"
+		(property "Value" "200k"
 			(at 77.47 60.9599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2470,7 +2437,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.5n"
+		(property "Value" "580n"
 			(at 78.74 81.2799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2923,7 +2890,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "220n"
+		(property "Value" "298n"
 			(at 143.51 58.4199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3004,7 +2971,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10p"
+		(property "Value" "5p"
 			(at 122.936 82.042 0)
 			(show_name no)
 			(do_not_autoplace no)
