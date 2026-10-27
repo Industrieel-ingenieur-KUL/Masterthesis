@@ -5,7 +5,7 @@
     {
       "analysis": "TRAN",
       "commands": [
-        ".tran 100p 150u 0 100p\n.ic V(Net-_C4-Pad1_)=1.9 V(/Base)=0.8\n.model __Q1 NPN(BF=100 IS=1e-16 VAF=100 CJE=1p CJC=0.5p TF=20p)",
+        ".tran 400p 5m 0 400p",
         ".kicad adjustpaths",
         ".save all",
         ".probe alli",
@@ -28,6 +28,20 @@
         },
         {
           "color": "rgb(55, 126, 184)",
+          "cursor1": {
+            "position": 0.0001001523970586121,
+            "x_format": "3~s",
+            "y_format": "3~V"
+          },
+          "cursor2": {
+            "position": 0.00010014566606511213,
+            "x_format": "3~s",
+            "y_format": "3~V"
+          },
+          "cursorD": {
+            "x_format": "3~s",
+            "y_format": "3~V"
+          },
           "signal": "V(/OUT)",
           "trace_type": 257
         }

@@ -1091,13 +1091,14 @@
 		)
 		(uuid "3c8cee24-6c5a-432a-a5f1-4e0c8735fc96")
 	)
-	(text ".tran 100p 150u 0 100p\n.ic V(Net-_C4-Pad1_)=1.9 V(/Base)=0.8\n.model __Q1 NPN(BF=100 IS=1e-16 VAF=100 CJE=1p CJC=0.5p TF=20p)\n"
+	(text ".tran 500p 5m 0 UIC\n\n.ic V(Net-_C4-Pad1_)=1.9 V(/Base)=0.8\n.model __Q1 NPN(BF=100 IS=1e-16 VAF=100 CJE=1p CJC=0.5p TF=20p)\n\n.option method=trap\n.option trtol=3\n.option reltol=0.003\n.option abstol=1nA vntol=1mV\n.option trtol=7\n\n.save v(OUT) v(/Base) v(Net-_C4-Pad1_)\n"
 		(exclude_from_sim no)
-		(at 88.9 90.932 0)
+		(at 56.896 107.696 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(justify left)
 		)
 		(uuid "60b933fc-a609-40a0-bdf4-10a77ddaa3f5")
 	)
@@ -1787,7 +1788,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10p"
+		(property "Value" "4p"
 			(at 145.796 78.232 0)
 			(show_name no)
 			(do_not_autoplace no)
