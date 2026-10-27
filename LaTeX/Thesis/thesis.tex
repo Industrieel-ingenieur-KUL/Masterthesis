@@ -47,7 +47,7 @@ citestyle=numeric-comp, maxnames=99]{biblatex}  % make use of the biblatex packa
 \usepackage{amssymb}
 \usepackage{siunitx}
 \sisetup{detect-all}
-\usepackage[acronym,xindy]{glossaries}
+\usepackage[acronym]{glossaries}
 \makenoidxglossaries
 \usepackage[version=4]{mhchem}                  % chemical formulas
 \usepackage{tabularx}
@@ -125,7 +125,7 @@ citestyle=numeric-comp, maxnames=99]{biblatex}  % make use of the biblatex packa
 % Optional override if your programme requires different rules:
 %\campussetup{layout=report,columns=1,max-content-pages=30}
 \title{Miniature and customer friendly solution for tracking and locating insects}
-\subtitle{Subtitle (optional)}
+\subtitle{}
 \forenameA{Lars}
 \surnameA{Deprez}
 \forenameB{} %keep empty if no 2nd author
@@ -139,6 +139,8 @@ citestyle=numeric-comp, maxnames=99]{biblatex}  % make use of the biblatex packa
 \loadLanguage% keep this untouched
 
 \input{abbreviations.tex}
+\glsaddall
+
 
 \begin{document}
 \preface%
