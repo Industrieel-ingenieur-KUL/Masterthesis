@@ -1091,7 +1091,7 @@
 		)
 		(uuid "3c8cee24-6c5a-432a-a5f1-4e0c8735fc96")
 	)
-	(text ".tran 500p 300u 0 500p\n\n.save v(/OUT) v(/Base) v(/Collector)"
+	(text ".tran 1500p 600u 0 1500p\n\n.save v(/OUT) v(/Base) v(/Collector)"
 		(exclude_from_sim no)
 		(at 57.15 96.012 0)
 		(effects
