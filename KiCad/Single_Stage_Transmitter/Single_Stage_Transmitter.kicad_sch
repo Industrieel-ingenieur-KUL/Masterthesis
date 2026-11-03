@@ -160,6 +160,233 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:Crystal"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "Y1"
+				(at -3.302 1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Crystal"
+				(at 6.604 1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Two pin crystal"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "quartz ceramic resonator oscillator"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Crystal*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Crystal_0_1"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -1.905 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 -1.27) (xy -1.905 1.27)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.143 2.54)
+					(end 1.143 -2.54)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.905 -1.27) (xy 1.905 1.27)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 1.905 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Crystal_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 1.27)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 1.27 90)
+					(length 1.27)
+					(hide yes)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 1.27)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -1.27 270)
+					(length 1.27)
+					(hide yes)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:L"
 			(pin_numbers
 				(hide yes)
@@ -1103,6 +1330,12 @@
 		(uuid "60b933fc-a609-40a0-bdf4-10a77ddaa3f5")
 	)
 	(junction
+		(at 96.52 63.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0840d7fd-9203-46d2-9f3e-ade7b748c219")
+	)
+	(junction
 		(at 74.93 74.93)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1143,12 +1376,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c19aae10-5e8d-4d7d-8506-8fe0e1058a7e")
-	)
-	(junction
-		(at 96.52 64.77)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d27d77e2-75ba-4ffb-8a5f-ed07318be7c3")
 	)
 	(junction
 		(at 132.08 63.5)
@@ -1256,7 +1483,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 59.69) (xy 99.06 59.69)
+			(xy 96.52 55.88) (xy 99.06 55.88)
 		)
 		(stroke
 			(width 0)
@@ -1266,7 +1493,7 @@
 	)
 	(wire
 		(pts
-			(xy 95.25 64.77) (xy 95.25 74.93)
+			(xy 95.25 63.5) (xy 95.25 74.93)
 		)
 		(stroke
 			(width 0)
@@ -1276,17 +1503,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 59.69) (xy 96.52 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "36e4def5-8863-4546-977b-1d6b531f382a")
-	)
-	(wire
-		(pts
-			(xy 129.54 59.69) (xy 128.27 59.69)
+			(xy 129.54 55.88) (xy 128.27 55.88)
 		)
 		(stroke
 			(width 0)
@@ -1336,6 +1553,16 @@
 	)
 	(wire
 		(pts
+			(xy 96.52 63.5) (xy 109.22 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "543e4f65-9183-48da-884c-1c86ec1f294f")
+	)
+	(wire
+		(pts
 			(xy 142.24 39.37) (xy 74.93 39.37)
 		)
 		(stroke
@@ -1346,7 +1573,17 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 67.31) (xy 96.52 67.31)
+			(xy 96.52 63.5) (xy 96.52 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5dc730df-7c3e-43e6-9dad-feb37cd51e1c")
+	)
+	(wire
+		(pts
+			(xy 109.22 69.85) (xy 96.52 69.85)
 		)
 		(stroke
 			(width 0)
@@ -1356,7 +1593,7 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 59.69) (xy 129.54 63.5)
+			(xy 129.54 55.88) (xy 129.54 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1366,17 +1603,7 @@
 	)
 	(wire
 		(pts
-			(xy 95.25 64.77) (xy 96.52 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "64a17812-95ad-4ae4-b4e1-c502cdfde605")
-	)
-	(wire
-		(pts
-			(xy 106.68 59.69) (xy 109.22 59.69)
+			(xy 106.68 55.88) (xy 109.22 55.88)
 		)
 		(stroke
 			(width 0)
@@ -1396,13 +1623,23 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 67.31) (xy 129.54 67.31)
+			(xy 116.84 69.85) (xy 129.54 69.85)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "71fce68f-18ff-4733-b3c8-a8f5f204283f")
+	)
+	(wire
+		(pts
+			(xy 129.54 63.5) (xy 129.54 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b6da349-2879-45cd-b71a-34b1f8fe5407")
 	)
 	(wire
 		(pts
@@ -1476,6 +1713,16 @@
 	)
 	(wire
 		(pts
+			(xy 116.84 63.5) (xy 129.54 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aec64b8d-5867-4a10-936d-f55ea0e3a2b6")
+	)
+	(wire
+		(pts
 			(xy 74.93 74.93) (xy 74.93 63.5)
 		)
 		(stroke
@@ -1496,7 +1743,7 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 59.69) (xy 120.65 59.69)
+			(xy 116.84 55.88) (xy 120.65 55.88)
 		)
 		(stroke
 			(width 0)
@@ -1536,6 +1783,16 @@
 	)
 	(wire
 		(pts
+			(xy 96.52 55.88) (xy 96.52 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cc7ad058-0faa-4b29-9dd8-f21f09d79590")
+	)
+	(wire
+		(pts
 			(xy 74.93 74.93) (xy 74.93 76.2)
 		)
 		(stroke
@@ -1543,16 +1800,6 @@
 			(type default)
 		)
 		(uuid "d2c90512-b8ee-4892-a002-e811f486cc3c")
-	)
-	(wire
-		(pts
-			(xy 129.54 63.5) (xy 129.54 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d6276328-f19a-4638-8153-4a6952840d7f")
 	)
 	(wire
 		(pts
@@ -1606,6 +1853,16 @@
 	)
 	(wire
 		(pts
+			(xy 95.25 63.5) (xy 96.52 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f4f6d62e-8a50-4868-ba22-55656bc11db6")
+	)
+	(wire
+		(pts
 			(xy 74.93 85.09) (xy 132.08 85.09)
 		)
 		(stroke
@@ -1654,20 +1911,30 @@
 		)
 		(uuid "507d8630-da08-4c08-94f6-61da058a19d7")
 	)
+	(label "Vcc"
+		(at 74.93 39.37 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b412f3a4-5fef-4cdb-baa8-3649a637c05f")
+	)
 	(symbol
 		(lib_id "Device:L")
-		(at 102.87 59.69 90)
+		(at 102.87 55.88 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "08e1f39e-dd6f-4e08-851a-b5402a976d75")
 		(property "Reference" "Lm1"
-			(at 102.87 54.61 90)
+			(at 102.87 50.8 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1677,7 +1944,7 @@
 			)
 		)
 		(property "Value" "54u"
-			(at 102.87 57.15 90)
+			(at 102.87 53.34 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1687,7 +1954,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 102.87 59.69 0)
+			(at 102.87 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1698,7 +1965,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 102.87 59.69 0)
+			(at 102.87 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1709,7 +1976,7 @@
 			)
 		)
 		(property "Description" "Inductor"
-			(at 102.87 59.69 0)
+			(at 102.87 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1741,9 +2008,9 @@
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "20e6c42c-0fbd-4e3a-b37f-89a34751e2b3")
 		(property "Reference" "R3"
@@ -1766,7 +2033,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
 			(at 66.04 37.592 90)
 			(hide yes)
 			(show_name no)
@@ -1847,7 +2114,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
 			(at 133.0452 60.96 0)
 			(hide yes)
 			(show_name no)
@@ -2007,7 +2274,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0201_0603Metric"
 			(at 142.24 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -2061,10 +2328,10 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "6c15975f-a962-414f-9868-d91def8e4993")
 		(property "Reference" "Rs2"
@@ -2089,7 +2356,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
 			(at 155.448 71.12 90)
 			(hide yes)
 			(show_name no)
@@ -2170,7 +2437,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_QFP:TQFP-44_10x10mm_P0.8mm"
+		(property "Footprint" "Connector_JST:JST_VH_B2P3-VH_1x02_P7.92mm_Vertical"
 			(at 57.15 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -2284,7 +2551,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
 			(at 85.09 76.708 90)
 			(hide yes)
 			(show_name no)
@@ -2366,7 +2633,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
 			(at 76.708 59.69 90)
 			(hide yes)
 			(show_name no)
@@ -2448,7 +2715,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
 			(at 75.8952 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -2530,7 +2797,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_CSP:LFCSP-WD-10-1EP_3x3mm_P0.5mm_EP1.64x2.38mm"
+		(property "Footprint" "Package_DFN_QFN:Diodes_DFN1006-3"
 			(at 193.04 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -2627,17 +2894,17 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 113.03 67.31 270)
+		(at 113.03 69.85 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp yes)
 		(uuid "c6ca19e1-b805-49ad-8556-ad8e7ee16a24")
 		(property "Reference" "C1"
-			(at 112.014 70.612 90)
+			(at 112.014 73.152 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2648,7 +2915,7 @@
 			)
 		)
 		(property "Value" "3p"
-			(at 112.014 72.136 90)
+			(at 112.014 74.676 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2659,7 +2926,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 109.22 68.2752 0)
+			(at 109.22 70.8152 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2670,7 +2937,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 113.03 67.31 0)
+			(at 113.03 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2681,7 +2948,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 113.03 67.31 0)
+			(at 113.03 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2708,17 +2975,17 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 113.03 59.69 90)
+		(at 113.03 55.88 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp yes)
 		(uuid "c7bc80b3-dbaf-4d09-baa9-40da762582ed")
 		(property "Reference" "Cm1"
-			(at 114.046 53.848 90)
+			(at 114.046 50.038 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2729,7 +2996,7 @@
 			)
 		)
 		(property "Value" "22.22f"
-			(at 114.554 56.388 90)
+			(at 114.554 52.578 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2740,7 +3007,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 116.84 58.7248 0)
+			(at 116.84 54.9148 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2751,7 +3018,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 113.03 59.69 0)
+			(at 113.03 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2762,7 +3029,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 113.03 59.69 0)
+			(at 113.03 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2789,18 +3056,18 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 124.46 59.69 90)
+		(at 124.46 55.88 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "cb917079-80bb-46ad-ae61-a469ffd97d95")
 		(property "Reference" "Rs1"
-			(at 124.46 53.34 90)
+			(at 124.46 49.53 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2810,7 +3077,7 @@
 			)
 		)
 		(property "Value" "50"
-			(at 124.46 55.88 90)
+			(at 124.46 52.07 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2820,7 +3087,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 124.46 61.468 90)
+			(at 124.46 57.658 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2831,7 +3098,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 124.46 59.69 0)
+			(at 124.46 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2842,7 +3109,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 124.46 59.69 0)
+			(at 124.46 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2901,7 +3168,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0201_0603Metric"
 			(at 142.24 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -2950,6 +3217,91 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:Crystal")
+		(at 113.03 63.5 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ef68f46c-303a-4373-a76e-952c30c69f5c")
+		(property "Reference" "Y1"
+			(at 109.728 62.23 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Crystal"
+			(at 119.634 62.23 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Library:ABM14N800000MHZ8N1V"
+			(at 113.03 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 113.03 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Two pin crystal"
+			(at 113.03 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "c90b03f8-b5a3-43e0-bf8c-c0b584601cd9")
+		)
+		(pin "1"
+			(uuid "a533ca55-1f10-4268-aaad-52a5a970619a")
+		)
+		(pin "4"
+			(uuid "83cd3cb4-c5a2-428b-9dd7-8de31ffe3fbb")
+		)
+		(pin "3"
+			(uuid "864db740-9b6b-442e-b9ba-1638d171bf25")
+		)
+		(instances
+			(project "Single_Stage_Transmitter"
+				(path "/2688bd9c-c39c-4a29-8195-973e7622281f"
+					(reference "Y1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 119.38 80.01 0)
 		(unit 1)
@@ -2982,7 +3334,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
 			(at 120.3452 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -3036,10 +3388,10 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files no)
+		(dnp yes)
 		(uuid "fe2d4399-2f59-40fa-b426-6fcd6ac4e01e")
 		(property "Reference" "C5"
 			(at 157.48 55.8799 0)
@@ -3063,7 +3415,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
 			(at 154.6352 60.96 0)
 			(hide yes)
 			(show_name no)

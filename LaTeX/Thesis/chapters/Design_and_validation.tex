@@ -16,6 +16,21 @@ The design of a single-stage transmitter is built around a Pierce oscillator (sh
 	\caption{Schematic of the single-stage Pierce oscillator circuit (taken from \cite{naef-daenzerNewTransmitterSmall1993a}).}
 	\label{fig:pierce_main}
 \end{figure}
+
+The circuit has multiple requirements to be able to oscillate. The collector side branch needs to be capacitively tuned for the oscillation frequency of the crystal. This means that the LC tank frequency must be lower than the oscillation frequency, which is capped by an upper boundary formed by $L_1$ and the antenna. This relationship is defined in Equation~\ref{eq:osc_bounds}, where $L'_1$ is the equivalent inductance resulting from $L_1$ and the antenna. This is detailed in Appendix~\ref{app:crystal}:\begin{equation}
+	\omega_{\text{tank}} < \omega_{\text{osc}} < \omega_{\text{tank}} \sqrt{1 + \frac{L_2}{L'_1}}
+	\label{eq:osc_bounds}
+\end{equation}In an ideal case, $L_1$ will be tuned to form a resonant circuit with the antenna at the oscillation frequency, but this is not always possible.
+
+The second requirement states that the base-emitter of the transistor needs to be capacitive in the pF order of magnitude. Some base-emitter capacitances of \glspl{bjt} are too low, especially from RF \glspl{bjt}, requiring a capacitor to be placed between the pins.
+
+The transconductance $g_m$ is fundamentally dependent on the DC collector current. By substituting $I_c = \beta I_b$, the transconductance can be expressed directly as a function of the base bias current:
+
+\begin{equation}
+	g_m = \frac{I_c}{V_T} = \frac{\beta I_b}{V_T}
+\end{equation}
+
+The transistor's transconductance generates an active negative resistance that amplifies the signal to overcome the parasitic losses within the oscillation circuit, primarily the crystal's motional resistance ($R_s$), the bias resistor ($R_2$), and the equivalent series resistances of the capacitors.
  
 \section{Component calculation}
 
