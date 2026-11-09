@@ -5,7 +5,7 @@
 
 \section{Introduction}
 
-The literature review looks at the impact Asian hornets have on their environment and different methods of tracking Asian hornets with their advantages and disadvantages. Further, we investigate radio telemetry in more detail, look at commercial tag options and end with a conclusion.
+The literature review looks at the impact Asian hornets have on their environment and different methods of tracking Asian hornets with their advantages and disadvantages. Further, we investigate radio telemetry in more detail, look at commercial tag and battery options and end with a conclusion.
 
 \section{Asian hornet}
 
@@ -56,6 +56,8 @@ This means that the single-stage tag remains the favorite for small insect track
 
 An important part of the literature study is to find commercial tags and compare them to each other, learn about different technologies that are used in practice, and get an understanding of acceptable prices, ranges, tag weights, and tag dimensions. Different commercial tags are shown in Table~\ref{tab:tracking_tags_comparison}, some purpose-built for tracking hornets while others have more general use cases. The system cost is the price of all the equipment needed to start tracking. The VESPA tracker has the lowest price per tag but lacks in range. The VFT 110 has the lightest tag with a good range and tag price, but the system cost is higher than that of the VESPA and Intuite trackers.
 
+
+
 \begin{table*}[htbp]
 	\centering
 	\caption{Comparison of existing tracking tags suitable for Asian hornets.}
@@ -71,6 +73,29 @@ An important part of the literature study is to find commercial tags and compare
 		\bottomrule
 	\end{tabular}
 \end{table*}
+
+\section{Energy storage}
+
+The majority of the tag weight will be in the energy storage; this needs to suffice for more than 2 hours of operation. The main battery requirements are a sub-$100\,\text{mg}$ weight, adequate capacity between $0.1\,\text{mAh}$ and $1\,\text{mAh}$, and a small footprint within $5 \times 5\,\text{mm}$. 
+
+Table~\ref{tab:battery_comparison} shows different battery options with relevant specs. The two options are LiPo batteries with higher capacity and solid-state ceramic batteries with higher discharge current. The low discharge current of the LiPo battery can be compensated with a capacitor as long as the average current does not exceed the discharge current and the capacity is sufficiently large. Charging the LiPo battery is more complex and time-consuming, requiring a current- and voltage-controlled charger, while solid-state ceramic batteries can be fully charged within minutes using just a fixed voltage source.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Comparison of selected Seiko and ITEN micro-batteries highlighting technology, capacity, weight, and discharge current \cite{MicroBatteryMS} \cite{ExploreITENsRange}.}
+	\label{tab:battery_comparison}
+	\begin{tabular}{llllll}
+		\toprule
+		\small
+		\textbf{Manufacturer} & \textbf{Model} & \textbf{Technology} & \textbf{Capacity (mAh)} & \textbf{Weight (mg)} & \textbf{Discharge Current ($\mu$A)} \\
+		\midrule
+		Seiko & MS412FE & LiPo & 1 & 70 & 10 \\
+		Seiko & MS414GE & LiPo & 2 & 80 & 10 \\
+		ITEN & PWY0150S & Solid state ceramic & 0.15 & 73 & 1000 \\
+		ITEN & PWY0250S & Solid state ceramic & 0.25 & 95 & 1000 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 
 \section{Conclusion}
