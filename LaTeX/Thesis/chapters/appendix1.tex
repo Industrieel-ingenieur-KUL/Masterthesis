@@ -305,11 +305,20 @@ Equating $P_{\text{supplied}} = P_{\text{loss}}$ and canceling $i^2$:
 	R_s = |R_a| \left(\frac{C_L}{C_T}\right)^2
 \end{equation}
 
-Substituting $|R_a| = \frac{g_m}{\omega^2 C_b C_c}$ yields the final critical transconductance $g_{m,\text{crit}}$ required for oscillation startup:
+Substituting $|R_a| = \frac{g_m}{\omega^2 C_b C_c}$ yields the critical transconductance $g_{m,\text{crit}}$ required for oscillation startup:
 
 \begin{equation}
 	g_{m,\text{crit}} = \omega^2 C_b C_c R_s \left(\frac{C_T}{C_L}\right)^2
 \end{equation}
+
+Substituting $C_L = \frac{C_b C_c}{C_b + C_c}$ into this expression simplifies the relationship by canceling common $C_b C_c$ terms:
+
+\begin{align}
+	g_{m,\text{crit}} &= \omega^2 R_s C_T^2 \frac{(C_b + C_c)^2}{C_b C_c} \nonumber \\
+	&= \omega^2 R_s C_T^2 \left( \frac{C_b}{C_c} + 2 + \frac{C_c}{C_b} \right)
+\end{align}
+
+This form shows that $g_{m,\text{crit}}$ depends primarily on the total load capacitance $C_T^2$ and the capacitance ratio asymmetry, reaching its minimum value of $g_{m,\text{crit, min}} = 4 \omega^2 R_s C_T^2$ when $C_b = C_c$.
 
 
 The resulting $g_{m,\text{crit}}$ is used to calculate the required base bias current. To ensure a reliable startup, it is recommended to maintain a design margin of $g_m = (3 \text{ to } 5) \times g_{m,\text{crit}}$.
@@ -390,6 +399,15 @@ The tank circuit must be designed such that the oscillation frequency falls with
 
 \section{The antenna}
 
+The transmitter will use a monopole antenna; these have the main advantage of a small footprint, which is crucial. The main drawback is that a monopole requires a ground plane; without this, the efficiency drops. 
+
+The monopole needs to be ideally $\lambda/4$ long, this is the standard quarter-wave monopole. The physical length $l$ of a quarter-wave antenna can be calculated using the speed of light $c$ and the operating frequency $f$:
+
+\begin{equation}
+	l = \frac{\lambda}{4} = \frac{c}{4f}
+\end{equation}
+
+This is still too long for lower frequencies. To show the impact of the frequency on the antenna size: at $150\,\text{MHz}$ ($\lambda = 2.0\,\text{m}$), a quarter-wave antenna is $50\,\text{cm}$ long. At $440\,\text{MHz}$ ($\lambda = 68.2\,\text{cm}$), it is about $17\,\text{cm}$ long. Only at higher frequencies like $2.4\,\text{GHz}$ ($\lambda = 12.5\,\text{cm}$) does the antenna become highly compact at roughly $3.1\,\text{cm}$.
 
 
 \section{Design formula summary}
@@ -406,7 +424,7 @@ For convenience during the practical design phase, all critical equations requir
 
 \subsection*{Transistor Startup and Biasing}
 \begin{align}
-	g_{m,\text{crit}} &= \omega^2 C_b C_c R_s \left(\frac{C_T}{C_L}\right)^2 && \text{(Minimum critical transconductance)} \\
+	g_{m,\text{crit}} &= \omega^2 R_s C_T^2 \left( \frac{C_b}{C_c} + 2 + \frac{C_c}{C_b} \right) && \text{(Minimum critical transconductance)} \\
 	g_m &= (3 \text{ to } 5) \times g_{m,\text{crit}} && \text{(Target transconductance with safety margin)} \\
 	I_c &= g_m V_T && \text{(Required DC collector bias current)} \\
 	I_b &= \frac{I_c}{\beta} && \text{(Required DC base bias current)}

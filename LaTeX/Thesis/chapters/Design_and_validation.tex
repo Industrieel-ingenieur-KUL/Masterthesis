@@ -30,9 +30,85 @@ The transconductance $g_m$ is fundamentally dependent on the DC collector curren
 	g_m = \frac{I_c}{V_T} = \frac{\beta I_b}{V_T}
 \end{equation}
 
-The transistor's transconductance generates an active negative resistance that amplifies the signal to overcome the parasitic losses within the oscillation circuit, primarily the crystal's motional resistance ($R_s$), the bias resistor ($R_2$), and the equivalent series resistances of the capacitors.
+The transistor's transconductance generates an active negative resistance that amplifies the signal to overcome the parasitic losses within the oscillation circuit, primarily the crystal's motional resistance ($R_s$), and the losses caused by the capacitors. The minimum critical transconductance required for oscillation startup is expressed as:
+
+\begin{equation}
+	g_{m,\text{crit}} = 4 \omega^2 R_s C_T^2
+\end{equation}
+
+A detailed derivation and full parameter analysis are given in Appendix~\ref{app:crystal}.
  
-\section{Component calculation}
+\section{Component selection and calculation}
+
+ This section shows how the calculations and component selection are done in the thesis. First, the crystal and transistor need to be selected. The crystal will determine the operation frequency, which is the third harmonic in this thesis. It is important to choose a crystal with low load capacitance and motional resistance to keep $g_{m,\text{crit}}$ as low as possible. The most important parameter of the transistor is the $f_T$ frequency, which should be 5x to 10x above the operating frequency. Keeping the $C_{cb}$ capacitance as low as possible will also keep $g_{m,\text{crit}}$ to a minimum. All other components are passive and have fewer requirements; only the capacitors and inductors on the collector side still have to function as capacitors and inductors at the operating frequency.
+ 
+%
+%
+%
+%
+%
+%
+% Add values for the final components and fill them in!!!!!!!
+%
+%
+%
+%
+%
+ 
+ \subsection{Available parameters}
+ 
+ The following list shows the selected components and the variables given by their specifications:
+ 
+ \begin{itemize}
+ 	\item \textbf{Crystal:} Gives the oscillation frequency ($f_{\text{osc}}$), static capacitance ($C_0$), and motional resistance ($R_s$).
+ 	\item \textbf{Transistor:} Gives the feedback capacitance ($C_\mu$) and base-emitter capacitance ($C_\pi$).
+ \end{itemize}
+ 
+ Additionally, for the circuit calculations, we assume that the total base capacitance ($C_b$) and the total collector capacitance ($C_c$) are approximately the same ($C_b \approx C_c$). 
+ 
+ With these variables, the external load capacitance ($C_L$) and the total effective parallel capacitance ($C_T$) can be calculated using the following formulas:
+ 
+ \begin{equation}
+ 	C_L = \frac{C_b C_c}{C_b + C_c}
+ \end{equation}
+ 
+ \begin{equation}
+ 	C_T = C_0 + C_L + C_\mu
+ \end{equation}
+ 
+ 
+ 
+\subsection{Transconductance Calculation}
+
+The critical transconductance ($g_{m,\text{crit}}$) required for oscillation can be calculated using the parameters established in the previous section (where $\omega = 2\pi f_{\text{osc}}$):
+
+\begin{equation}
+	g_{m,\text{crit}} = \omega^2 C_b C_c R_s \left(\frac{C_T}{C_L}\right)^2
+\end{equation}
+
+To ensure a reliable oscillator startup under various conditions, the target transconductance ($g_m$) is designed to be five times higher than this critical threshold:
+
+\begin{equation}
+	g_m = 5 \times g_{m,\text{crit}}
+\end{equation}
+
+Using this target transconductance, the required DC base bias current ($I_b$) and the values for the bias network resistors ($R_1$ and $R_2$) can be determined. The base current is derived using the thermal voltage ($V_T$) and the transistor's common-emitter current gain ($\beta$):
+
+\begin{equation}
+	I_b = \frac{g_m V_T}{\beta}
+\end{equation}
+
+Assuming a standard series biasing configuration from the supply voltage ($V_{CC}$), the total required bias resistance is determined by Ohm's law. Consequently, the sum of the bias resistors $R_1$ and $R_2$ must equal:
+
+\begin{equation}
+	R_1 + R_2 = \frac{V_{CC} - V_{BE}}{I_b}
+\end{equation}
+
+\subsection{collector arm calculation}
+
+The main requirement of the collector arm is that the total impedance needs to be capacitive for the oscillaton to start as stated in Appendix~\ref{app:crystal}. The values for L1 L2 and C3 need to be calcualted and the only unknow is Ca, this is the capacitance of the antenna and can be measured using a \gls{vna}.
+
+
 
 \section{Simulation}
 
