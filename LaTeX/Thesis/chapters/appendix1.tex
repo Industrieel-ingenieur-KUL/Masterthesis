@@ -399,6 +399,139 @@ The tank circuit must be designed such that the oscillation frequency falls with
 
 \section{The antenna}
 
+This section will explain the antenna design. This is done by using an equivalent circuit where the AC source resistance and the antenna equivalent schematic need to be calculated. These values can then be matched to maximize the output power of the circuit.
+
+\subsection{Equivalent schematic}
+
+This section will explain the antenna design. This is done by using an equivalent circuit where the output impedance and the antenna equivalent schematic need to be calculated. These values can then be matched to maximize the output power of the circuit.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{circuitikz}[american, scale=0.85, transform shape]
+		% Transmitter Side
+		\draw (0,0) to[vsourcesin, l=$V_{\text{src}}$] (0,3)
+		to[R, l=$Z_{\text{out}}$] (2.2,3) node[circ] (feed) {};
+		\draw (0,0) -- (2.8,0);
+		
+		% First boundary dashed line
+		\draw[dashed, gray] (2.2, 4.0) -- (2.2, -0.8);
+		\node[above, gray] at (1.1, 4.1) {Transmitter};
+		
+		% Matching Network (Black Box)
+		\draw (feed) -- (2.8,3);
+		\draw[thick] (2.8,-0.4) rectangle (5.2,3.4);
+		\node[align=center] at (4.0, 1.5) {Matching\\Network};
+		\draw (5.2,3) -- (5.8,3) node[circ] (ant_start) {};
+		
+		% Second boundary dashed line
+		\draw[dashed, gray] (5.8, 4.0) -- (5.8, -0.8);
+		\node[above, gray] at (7.3, 4.1) {Antenna};
+		
+		% Antenna Side
+		\draw (ant_start) to[C, l=$C_a$] (7.3,3)
+		to[R, l=$R_{\text{loss}}$] (8.8,3)
+		to[R, l=$R_{\text{rad}}$] (8.8,0)
+		to[short] (5.2,0);
+		\draw (0,0) node[ground] {};
+	\end{circuitikz}
+	\caption{Equivalent circuit model showing the transmitter source ($V_{\text{src}}, R_{\text{src}}$), a generic impedance matching network, and the electrically small antenna ($C_a, R_{\text{loss}}, R_{\text{rad}}$).}
+	\label{fig:antenna_equivalent_circuit_blackbox}
+\end{figure}
+
+\subsection{Output resistance oscillator}
+
+The output resistance can be calculated using the AC circuit and the hybrid-$\pi$ model of the transistor, shown in Figure~\ref{fig:oscillator_ac_model}. $r_o$ which is in parallel with the current source, was removed assuming $V_A$ is sufficiently large and the collector current is small.
+
+\begin{figure}[htbp]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{circuitikz}
+			% Ground reference rail
+			\draw (0.0,0) -- (16.4,0);
+			\draw (10.0,0) node[ground]{};
+			
+			% Base-to-Ground Network (Z_base): v_pi and C_pi || r_pi || R_2
+			\draw (0.0,3.2) to[open, v_=$v_\pi$] (0.0,0);
+			\draw (0.0,3.2) -- (1.2,3.2) to[C, l=$C_\pi$] (1.2,0);
+			\draw (1.2,3.2) -- (2.6,3.2) to[R, l=$r_\pi$] (2.6,0);
+			\draw (2.6,3.2) -- (4.0,3.2) to[R, l=$R_2$] (4.0,0);
+			
+			% Base node (B)
+			\node[circ, label=below right:$B$] at (4.0,3.2) {};
+			
+			% Feedback Network (Z_fb) between Base (B) and Collector (C)
+			% 1. C_mu
+			\draw (4.0,3.2) to[C, l=$C_\mu$] (10.0,3.2);
+			% 2. C_0
+			\draw (4.0,3.2) -- (4.0,4.7) to[C, l=$C_0$] (10.0,4.7) -- (10.0,3.2);
+			% 3. BVD motional branch: R_s + L_s + C_s
+			\draw (4.0,4.7) -- (4.0,6.2)
+			to[R, l=$R_s$] (6.0,6.2)
+			to[L, l=$L_s$] (8.0,6.2)
+			to[C, l=$C_s$] (10.0,6.2) -- (10.0,4.7);
+			
+			% Collector node (C)
+			\node[circ, label=above right:$C$] at (10.0,3.2) {};
+			
+			% Dependent current source g_m * v_pi (r_o omitted)
+			\draw (10.0,3.2) to[cI, l_=$g_m v_\pi$] (10.0,0);
+			
+			% Test voltage v_t on Collector node (C) before the tank
+			\draw (10.0,3.2) -- (12.0,3.2);
+			\draw (10.9,3.2) to[open, v_=$v_t$] (10.9,0);
+			
+			% Parallel Tank (Z_tank): L_2 || C_3
+			\draw (12.0,3.2) -- (12.0,4.0) to[L, l=$L_2$] (14.8,4.0) -- (14.8,3.2);
+			\draw (12.0,3.2) -- (12.0,2.4) to[C, l_=$C_3$] (14.8,2.4) -- (14.8,3.2);
+			
+			% Output port (Antenna tap): test current i_t after the tank
+			\draw (16.4,3.2) to[short, o-, i_=$i_t$] (14.8,3.2);
+			\draw (16.4,0) node[ocirc]{};
+		\end{circuitikz}%
+	}
+	\caption{Small-signal AC equivalent circuit of the crystal oscillator using the hybrid-$\pi$ transistor model and Butterworth--Van Dyke crystal model.}
+	\label{fig:oscillator_ac_model}
+\end{figure}
+
+The output impedance will be determined by first finding the collector impedance at node C and then adding the tank circuit in series.
+
+First, the base impedance ($Z_b$) and feedback impedance ($Z_{fb}$) are calculated. Defining the parallel base resistance as $R_b = r_\pi \parallel R_2$:
+\begin{equation}
+	R_b = \frac{r_\pi R_2}{r_\pi + R_2}
+\end{equation}
+
+The base impedance $Z_b$ consists of the parallel combination of $R_b$ and $C_\pi$:
+\begin{equation}
+	Z_b = \frac{1}{\frac{1}{R_b} + j\omega C_\pi} = \frac{R_b}{1 + j\omega R_b C_\pi}
+\end{equation}
+
+The feedback impedance $Z_{fb}$ is formed by $C_\mu$, $C_0$, and the series motional branch ($R_s$, $L_s$, and $C_s$) in parallel:
+\begin{equation}
+	Z_{fb} = \frac{1}{j\omega (C_\mu + C_0) + \frac{1}{R_s + j\omega L_s + \frac{1}{j\omega C_s}}}
+\end{equation}
+With this, $v_\pi$ can be calculated. This is needed for the current source and can be found by defining $v_t$ as the voltage over the current source. Then, $v_\pi$ can be found using the voltage divider:
+\begin{equation}
+	v_\pi = v_t \frac{Z_b}{Z_b + Z_{fb}}
+\end{equation}
+
+The collector impedance can be found by inserting a test current $i_t$ into the collector node, as seen in Figure~\ref{fig:oscillator_ac_model}. Using KCL, we find that:
+\begin{equation}
+	i_t = g_m v_\pi + \frac{v_t}{Z_b + Z_{fb}} = v_t \frac{1 + g_m Z_b}{Z_b + Z_{fb}}
+\end{equation}
+From this, the collector impedance $Z_c$ is:
+\begin{equation}
+	Z_c = \frac{v_t}{i_t} = \frac{Z_b + Z_{fb}}{1 + g_m Z_b}
+\end{equation}
+
+Lastly, we can add together the tank impedance to find the total output impedance:
+\begin{equation}
+	Z_{tank} = \frac{1}{\frac{1}{j\omega L_2} + j\omega C_3} = \frac{j\omega L_2}{1 - \omega^2 L_2 C_3}
+\end{equation}
+\begin{equation}
+	Z_{out} = Z_{tank} + Z_c = \frac{j\omega L_2}{1 - \omega^2 L_2 C_3} + \frac{Z_b + Z_{fb}}{1 + g_m Z_b}
+\end{equation}
+
+\subsection{Antenna}
 The transmitter will use a monopole antenna; these have the main advantage of a small footprint, which is crucial. The main drawback is that a monopole requires a ground plane; without this, the efficiency drops. 
 
 The monopole needs to be ideally $\lambda/4$ long, this is the standard quarter-wave monopole. The physical length $l$ of a quarter-wave antenna can be calculated using the speed of light $c$ and the operating frequency $f$:
@@ -407,7 +540,59 @@ The monopole needs to be ideally $\lambda/4$ long, this is the standard quarter-
 	l = \frac{\lambda}{4} = \frac{c}{4f}
 \end{equation}
 
-This is still too long for lower frequencies. To show the impact of the frequency on the antenna size: at $150\,\text{MHz}$ ($\lambda = 2.0\,\text{m}$), a quarter-wave antenna is $50\,\text{cm}$ long. At $440\,\text{MHz}$ ($\lambda = 68.2\,\text{cm}$), it is about $17\,\text{cm}$ long. Only at higher frequencies like $2.4\,\text{GHz}$ ($\lambda = 12.5\,\text{cm}$) does the antenna become highly compact at roughly $3.1\,\text{cm}$.
+This is still too long for lower frequencies. To show the impact of the frequency on the antenna size, the wavelengths and quarter-wave lengths for different frequencies are shown in Table~\ref{tab:antenna_dimensions}.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Impact of operating frequency on wavelength ($\lambda$) and quarter-wave monopole length ($\lambda/4$).}
+	\label{tab:antenna_dimensions}
+	\begin{tabular}{l c c}
+		\toprule
+		\textbf{Frequency ($f$)} & \textbf{Wavelength ($\lambda$)} & \textbf{Quarter-Wave Length ($\lambda/4$)} \\
+		\midrule
+		$150\,\text{MHz}$ & $2.0\,\text{m}$ & $50.0\,\text{cm}$ \\
+		$440\,\text{MHz}$ & $68.2\,\text{cm}$ & $17.0\,\text{cm}$ \\
+		$2.4\,\text{GHz}$ & $12.5\,\text{cm}$ & $3.1\,\text{cm}$ \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+This means the tag will use an \gls{esa}. The main drawback of this is that the radiation resistance will be significantly lower than an ideal monopole and that there will be a capacitive component to the antenna that needs to be matched. 
+
+The radiation resistance can be approximated with the following formula where l in the antenna length:
+
+\begin{equation}
+	R_{\text{rad}} \approx 10\pi^2 \left(\frac{l}{\lambda}\right)^2
+\end{equation}
+
+To calculate the loss resistance ($R_{\text{loss}}$) of the antenna wire at high frequencies, the skin depth ($\delta$) must be determined. The skin depth is calculated using the angular frequency ($\omega$), the magnetic permeability of the conductor ($\mu$), and its electrical conductivity ($\sigma$):
+
+\begin{equation}
+	\delta = \sqrt{\frac{2}{\omega \mu \sigma}}
+\end{equation}
+
+If the skin depth is smaller than the antenna thickness, the loss resistance needs to be calculated:
+
+\begin{equation}
+	R_{\text{loss}} = \frac{l}{2\pi r} R_s
+\end{equation}
+
+where $R_s$ is the surface resistance, calculated as:
+
+\begin{equation}
+	R_s = \sqrt{\frac{\omega \mu}{2 \sigma}}
+\end{equation}
+
+Putting this together gives the antenna efficiency ($\eta$) with the radiation resistance:
+
+\begin{equation}
+	\eta = \frac{R_{\text{rad}}}{R_{\text{rad}} + R_{\text{loss}}}
+\end{equation}
+
+The final parameter Ca is the most difficult to determine. The best cause of action is to simulate or measure this value to make accurate calculations.
+
+\subsection{matching circuit}
+
 
 
 \section{Design formula summary}
