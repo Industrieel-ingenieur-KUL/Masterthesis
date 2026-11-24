@@ -633,17 +633,40 @@ Adding these together gives us $Y_J$, where $G_J$ is the real part (conductance)
 	Y_J = Y_a + Y_b = \underbrace{\left(\omega^2 C_a^2 R_a + \frac{R_l}{\omega^2 L_1^2}\right)}_{G_J} + j\underbrace{\left(\omega C_a - \frac{1}{\omega L_1}\right)}_{B_J} = G_J + jB_J
 \end{equation}
 
-Note that the susceptance can also be written using the equivalent inductance $L_1'$ as $B_J = -\frac{1}{\omega L_1'}$. Now the impedance $Z_J$ can be calculated from $\frac{1}{Y_J}$ by multiplying by the complex conjugate:
+Now the impedance $Z_J$ can be calculated from $\frac{1}{Y_J}$ by multiplying by the complex conjugate:
 
 \begin{equation}
-	Z_J = \frac{1}{Y_J} = \frac{1}{G_J + jB_J} = \frac{G_J - jB_J}{G_J^2 + B_J^2}
+	Z_J = \frac{1}{Y_J} = \frac{1}{G_J + jB_J} = \frac{G_J - jB_J}{G_J^2 + B_J^2} = R_J + jX_J
 \end{equation}
 
-Using the condition that $|B_J| \gg G_J$ (because $\omega L_1' \gg R_J$), the $G_J^2$ term in the denominator can be neglected, simplifying $Z_J$ to:
+Near antenna resonance ($L_1 \approx \frac{1}{\omega^2 C_a}$) the susceptance $B_J$ approaches zero, whereas $|B_J| \gg G_J$ when the antenna is not at resonance, making $G_J^2$ negligible in the denominator. This results in two full expressions depending on the operating scenario:
 
-\begin{equation}
-	Z_J \approx \frac{G_J}{B_J^2} - \frac{j}{B_J} = (\omega L_1')^2 \left(\omega^2 C_a^2 R_a + \frac{R_l}{\omega^2 L_1^2}\right) + j\omega L_1' = R_J + j\omega L_1'
-\end{equation}
+\begin{enumerate}
+	\item \textbf{Off-resonance ($|B_J| \gg G_J$):}
+	\begin{equation}
+		Z_J \approx \frac{G_J}{B_J^2} - \frac{j}{B_J} = (\omega L_1')^2 \left(\omega^2 C_a^2 R_a + \frac{R_l}{\omega^2 L_1^2}\right) + j\omega L_1' = R_J + j\omega L_1'
+		\label{eq:off-resonance_antennaimpedane}
+	\end{equation}
+	
+	\item \textbf{At antenna resonance ($L_1 = \frac{1}{\omega^2 C_a}$, $B_J = 0$):}
+	\begin{equation}
+		Z_J = \frac{1}{G_J} = \frac{1}{\omega^2 C_a^2 R_a + \frac{R_l}{\omega^2 L_1^2}} = \frac{1}{\omega^2 C_a^2 (R_a + R_l)} = R_J
+	\end{equation}
+\end{enumerate}
+
+Conjugate matching is needed to gain optimal output power ($Z_J = Z_{\text{out}}^*$) by canceling out the reactive parts, but this will break the condition that the collector arm must be capacitive. Instead, $L_1$ will be chosen off-resonance. This means that the formula at resonance cannot be used. Also keep in mind that the off-resonance formula gives a bigger error the closer it is to resonance.
+
+Out of $R_J$ in Equation~\ref{eq:off-resonance_antennaimpedane}, we can find where the losses are in the circuit:
+\begin{enumerate}
+	\item The inductor loss term scales with $\frac{1}{L_1}$ (given $R_l = \frac{\omega L_1}{Q}$), indicating that $L_1$ should not be chosen too small. Additionally, a high-$Q$ inductor is favorable to minimize $R_l$
+	\item $R_a = R_{\text{rad}} + R_{\text{loss}}$; if possible, $R_{\text{rad}}$ should be maximized and $R_{\text{loss}}$ minimized.
+	\item Having a larger antenna capacitance ($C_a$) will improve the radiated power.
+\end{enumerate}
+
+keeping this in mind will result in more radiated power improving the tag range and/or power consumption
+
+
+
 
 \section{Design formula summary}
 
