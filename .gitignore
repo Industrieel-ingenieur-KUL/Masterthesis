@@ -1,3 +1,4 @@
 *.raw
 **/Single_Stage_Transmitter/*.py
 **/Ltspice_sim/
+*.zip
